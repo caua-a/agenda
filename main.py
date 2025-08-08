@@ -1,14 +1,6 @@
-from func import Adicionar_tarefa
-from func import Remover_tarefa
-from func import Listar
-from func import Sair
-from func import concluida
-from func import listar_concluidos
-from func import salvar_tarefas
-from func import carregar_tarefas
-from func import lista_tarefas
-from func import ler_lista
+from func import Adicionar_tarefa, Remover_tarefa, Sair, concluida, listar_concluidos, carregar_tarefas, lista_tarefas
 import time
+import json
 opcoes=[]
 while True:
     print('''

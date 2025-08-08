@@ -1,5 +1,6 @@
 lista_tarefas=[]
 lista_concluido=[]
+import json
 f= open("tarefas.txt")
 
 lista_tarefas = []
