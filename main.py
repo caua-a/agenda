@@ -4,6 +4,10 @@ from func import Listar
 from func import Sair
 from func import concluida
 from func import listar_concluidos
+from func import salvar_tarefas
+from func import carregar_tarefas
+from func import lista_tarefas
+from func import ler_lista
 import time
 opcoes=[]
 while True:
@@ -24,27 +28,39 @@ while True:
     opcoes.append(escolha)
     if escolha == "1":
         Adicionar_tarefa()
-        time.sleep(3)
-    elif escolha=="2":
-        if 1 not in opcoes:
-            print("Não tem nenhuma tarefa.")
+        # não precisa chamar salvar_tarefas aqui, pois já salva na função
 
+    elif escolha == "2":
+        if len(lista_tarefas) == 0:
+            print("Não tem nenhuma tarefa.")
         else:
             Remover_tarefa()
-        time.sleep(3)
-    elif escolha=="3":
-        Listar()
-        time.sleep(5)
+
+    elif escolha == "3":
+        carregar_tarefas("tarefas.txt")
+        if lista_tarefas:
+            print("tarefas pendentes")
+            for i, tarefa in enumerate(lista_tarefas, 1):
+                print(f"{i}. {tarefa}")
+            time.sleep(5)
+        else:
+            print("Nenhuma tarefa encontrada.")
+
+    
     elif escolha == '4':
         concluida()
-        time.sleep(5)
+        carregar_tarefas("concluidas.txt", lista_tarefas)
+        # time.sleep(5)
+    
     elif escolha == '5':
         listar_concluidos()
+    
     elif escolha == '6':
         Sair()
+    
     else:
         print("Digite uma opção válida.")
-        time.sleep(2)
+        # time.sleep(2)
 
 
 
