@@ -77,15 +77,5 @@ def concluida():
             print(f"Sua tarefa {concluir} foi concluída.")
             break
             
-
-def listar_concluidos():
-    for x in lista_concluido:
-            print(f"[x] {x}")
-
-
-
-
-
-
 def ler_lista():
     pass

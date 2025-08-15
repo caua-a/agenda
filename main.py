@@ -1,6 +1,4 @@
-from func import Adicionar_tarefa, Remover_tarefa, Sair, concluida, listar_concluidos, carregar_tarefas, lista_tarefas
-import time
-import json
+from func import Adicionar_tarefa, Remover_tarefa, Sair, concluida, carregar_tarefas, lista_tarefas
 opcoes=[]
 while True:
     print('''
@@ -11,8 +9,7 @@ while True:
         ║  2. Remover Tarefa                                     ║
         ║  3. Listar Tarefas                                     ║
         ║  4. Concluir                                           ║
-        ║  5. Listar Concluídos                                  ║
-        ║  6. Sair                                               ║
+        ║  0. Sair                                               ║
         ╠════════════════════════════════════════════════════════╣
             '''
     )
@@ -20,7 +17,6 @@ while True:
     opcoes.append(escolha)
     if escolha == "1":
         Adicionar_tarefa()
-        # não precisa chamar salvar_tarefas aqui, pois já salva na função
 
     elif escolha == "2":
         if len(lista_tarefas) == 0:
@@ -34,7 +30,6 @@ while True:
             print("tarefas pendentes")
             for i, tarefa in enumerate(lista_tarefas, 1):
                 print(f"{i}. {tarefa}")
-            time.sleep(5)
         else:
             print("Nenhuma tarefa encontrada.")
 
@@ -42,17 +37,12 @@ while True:
     elif escolha == '4':
         concluida()
         carregar_tarefas("concluidas.txt", lista_tarefas)
-        # time.sleep(5)
     
-    elif escolha == '5':
-        listar_concluidos()
-    
-    elif escolha == '6':
+    elif escolha == '0':
         Sair()
     
     else:
         print("Digite uma opção válida.")
-        # time.sleep(2)
 
 
 
